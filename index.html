@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Link Hub</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #222;
+      color: #eee;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; 
+      min-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      position: relative;
+    }
+
+    .video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0;
+    }
+
+    .center-container {
+      z-index: 10;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem; 
+    }
+
+    header {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: rgb(220, 226, 220);
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    p {
+      color: #ccc;
+      margin-top: 0.25rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    #play-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      padding: 0;
+      z-index: 10;
+    }
+
+    #play-btn img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      filter: invert(69%) sepia(81%) saturate(301%) hue-rotate(82deg) brightness(83%) contrast(87%);
+      transition: filter 0.3s ease, transform 0.3s ease;
+      display: block;
+    }
+
+    #play-btn img:hover {
+      filter: invert(90%) sepia(100%) saturate(400%) hue-rotate(90deg) brightness(100%) contrast(110%);
+      transform: scale(1.1);
+    }
+  
+    #play-btn span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      pointer-events: none;
+      user-select: none;
+      text-shadow: 0 0 5px rgba(0,0,0,0.8);
+      opacity: 0.8;
+    }    
+    .icon-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      z-index: 10;
+    }
+    .icon-links a img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+     
+    }
+    .icon-links a img:hover {
+      transform: scale(1.2);
+      
+    }
+    footer {
+      margin: 2rem 0;
+      font-size: 0.9rem;
+      color: #aaa;
+      z-index: 10;
+      position: relative;
+    }   
+    .sakura {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/https://static.vecteezy.com/system/resources/previews/066/411/553/non_2x/pink-sakura-blossom-with-petals-veins-image-isolated-transparent-hanami-season-spring-symbol-asian-flora-cut-out-top-view-japanese-flower-cutout-element-object-photography-png.png.svg/120px-Cherry_blossom_icon.svg.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      opacity: 0.8;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      z-index: 5; 
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(-40px) rotate(0deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="video-container">
+    <video autoplay loop muted playsinline>
+      <source src="natur.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>  
+  
+  <div class="center-container">
+    <header>
+      <h1>eymen</h1>
+      <p>dc: fuuulan</p>
+    </header>
+
+    <button id="play-btn" aria-label="Play Music">
+      <img src="https://www.iconninja.com/files/328/799/759/greenluma-icon.png" alt="Play Button" />
+      <span>Press me</span>
+    </button>
+
+    <div class="icon-links">
+      <a href="https://t.me/fadeful" target="_blank" title="Telegram">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/dd0d7427-0aa4-4c28-9c58-8ce3e39712b3/dfwxwsw-bec372b1-39df-4f86-a9b6-01132bf6582d.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2RkMGQ3NDI3LTBhYTQtNGMyOC05YzU4LThjZTNlMzk3MTJiM1wvZGZ3eHdzdy1iZWMzNzJiMS0zOWRmLTRmODYtYTliNi0wMTEzMmJmNjU4MmQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.oVUN5XTM-DR4quIlyGta7f92hdxIx4LTatmleJ4x8tk" alt="Telegram" />
+      </a>
+      <a href="https://instagram.com/documentingrealiity" target="_blank" title="Instagram">
+        <img src="https://static.wikia.nocookie.net/mario/images/a/ad/Yellow_Luma_Art_%28Super_Mario_Galaxy%29.png/revision/latest/scale-to-width-down/1200?cb=20121208033212" alt="Instagram" />
+      </a>
+      <a href="https://github.com/thornfilm" target="_blank" title="GitHub">
+        <img src="https://www.freeiconspng.com/uploads/luma-green-icon-super-mario-18.png" alt="GitHub" />
+      </a>
+      <a href="https://tiktok.com/@fadethorn" target="_blank" title="TikTok">
+        <img src="https://w7.pngwing.com/pngs/233/418/png-transparent-luma-green-super-mario-icon-thumbnail.png" alt="TikTok" />
+      </a>
+    </div>
+  </div>
+
+  <div class="audio-player">
+    <audio id="bg-music">
+      <source src="ゆめうつつ - Lamp.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <div class="volume-control" id="volume-control">
+    <label for="volume">🔊 Volume</label>
+    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5" />
+  </div>
+
+  <footer>
+    <p>may Allah easen your Problems :) </p>
+  </footer>
+
+  <script>
+    const audio = document.getElementById('bg-music');
+    const volumeSlider = document.getElementById('volume');
+    const playBtn = document.getElementById('play-btn');
+    const volumeControl = document.getElementById('volume-control');
+
+    playBtn.addEventListener('click', () => {
+      audio.volume = volumeSlider.value;
+      audio.play().then(() => {
+        playBtn.style.display = 'none'; 
+        volumeControl.style.visibility = 'visible'; 
+      }).catch(e => {
+        console.log('Fehler beim Abspielen:', e);
+      });
+    });
+
+    volumeSlider.addEventListener('input', () => {
+      audio.volume = volumeSlider.value;
+    });
+
+   
+    function createSakura() {
+      const sakura = document.createElement('div');
+      sakura.classList.add('sakura');
+
+      
+      sakura.style.left = Math.random() * 100 + 'vw';
+
+     
+      sakura.style.animationDuration = (6 + Math.random() * 6) + 's';
+
+     
+      const scale = 0.5 + Math.random();
+      sakura.style.transform = `scale(${scale})`;
+
+      document.body.appendChild(sakura);
+
+      
+      sakura.addEventListener('animationend', () => {
+        sakura.remove();
+      });
+    }
+
+    
+    setInterval(createSakura, 300);
+  </script>
+</body>
+</html>
